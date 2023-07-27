@@ -11,9 +11,32 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import styled from 'styled-components';
+import {NavLink as Link} from 'react-router-dom';
 
 const pages: string[] = ['Overview', 'Expenses', 'IOU', 'UOI'];
 const settings: string[] = ['Account', 'Settings', 'Logout'];
+const NavLink = styled(Link)`
+    color: #07124B; 
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 3rem;
+    height: 100%;
+    cursor: pointer;
+    display: 'block';
+    margin: 0.25rem 0.25rem; 
+    &.active {
+        color: #07124B;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    &:hover {
+        color: #07124B;
+        text-decoration: underline;
+    }
+`;
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -128,7 +151,11 @@ const Navbar = () => {
                             Owhen
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'}, justifyContent: 'center', textAlign: 'center'}}>
-                            {pages.map(page => (
+                            <NavLink to='/'>Overview</NavLink>
+                            <NavLink to='/expenses'>Expenses</NavLink>
+                            <NavLink to='/ious'>IOUs</NavLink>
+                            <NavLink to='/uois'>UOIs</NavLink>
+                            {/* {pages.map(page => (
                                 <Button 
                                     key={page}
                                     onClick={handleCloseNavMenu}
@@ -136,7 +163,7 @@ const Navbar = () => {
                                 >
                                     {page}
                                 </Button>
-                            ))}
+                            ))} */}
                         </Box>
                         
                         <Box sx={{ flexGrow: 0}}>
