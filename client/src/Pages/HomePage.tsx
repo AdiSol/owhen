@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Box, Card, CardContent, Typography, Button, CardActions, CardHeader, Avatar } from '@mui/material';
 import { deepOrange, green } from '@mui/material/colors';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 const HomePage = () => {
-
+    const [currency, setCurrency] = useState<string>('NT$');
+    const [balance, setBalance] = useState<number>(102357.00);
+    const [budgetLeft, setBudgetLeft] = useState<number>(10452.00);
+    const [totalBudget, setTotalBudget] = useState<number>(15000.00);
+    const [budgetValid, setBudgetValid] = useState<string>('6/21/2023');
     return(
-        <div>  
+        <Box sx={{mt: 5}}>  
             <h1>Homepage</h1>
-            <Box sx={{ flexGrow: 1, display: 'flex', px: 1, justifyContent: 'center', color: 'white'}}>
+            <Box sx={{ flexGrow: 1, display: 'flex', px: 1, justifyContent: 'center', color: 'white', mt: 15}}>
                 <Card sx={{ minWidth: 430, mx: 10, borderRadius: '15px', p: 1, background: 'linear-gradient(180deg, rgba(255,171,97,1) 30%, rgba(238,149,149,1) 100%)'}}>
                     <CardContent>
                         <Grid container>
@@ -18,19 +22,19 @@ const HomePage = () => {
                                     Balance
                                 </Typography>
                                 <Typography gutterBottom variant='h4' component='div' align='left' sx={{pb: 9}} color={'white'}>
-                                    NTD102,357
+                                    {currency}{balance}
                                 </Typography>
                             </Grid>
                             <Grid item xs={6}>
-                                <Avatar variant="rounded" sx={{ bgcolor: green[500], marginLeft: 'auto'}}>
-                                    <AccountBalanceWalletIcon />
+                                <Avatar variant="rounded" sx={{ bgcolor: 'white', marginLeft: 'auto', width: 56, height: 56}}>
+                                    <AccountBalanceWalletIcon sx={{width: 45, height: 45, color: 'rgba(255,171,97,1)'}} />
                                 </Avatar>
                             </Grid>
                         </Grid>
                         
                     </CardContent>
                     <CardActions disableSpacing>
-                        <Button variant="text" disabled startIcon={<MilitaryTechIcon />} sx={{color: 'white'}}>
+                        <Button variant="text" startIcon={<MilitaryTechIcon />} sx={{color: 'white', pointerEvents: 'none'}}>
                             Super Saver
                         </Button>
                         <Button variant='outlined' sx={{ borderRadius: '20px', marginLeft: 'auto', color: 'white', border: '1px solid white'}}>Settings</Button>
@@ -45,35 +49,35 @@ const HomePage = () => {
                                     Budget left
                                 </Typography>
                                 <Typography gutterBottom variant='h4' component='div' align='left' color={'textSecondary'}>
-                                    NTD10,483
+                                    {currency}{budgetLeft}
                                 </Typography>
                             </Grid>
                             <Grid item xs={6}>
-                                <Avatar variant="rounded" sx={{ bgcolor: deepOrange[500], marginLeft: 'auto'}}>
-                                    <PaymentsIcon />
+                                <Avatar variant="rounded" sx={{ bgcolor: 'white', marginLeft: 'auto', width: 56, height: 56}}>
+                                    <PaymentsIcon sx={{width: 45, height: 45, color: 'rgba(255,157,157,1)'}} />
                                 </Avatar>
                             </Grid>
                         </Grid>
                         
                         <Box sx={{py: 1, mt: 1}}>
                             <Typography gutterBottom variant='subtitle2' component='div' align='left'  sx={{fontFamily: 'fredoka',}} color={'textSecondary'}>
-                                Total Budget:
+                                Total Budget: {currency}{totalBudget}
                             </Typography>
                             <Typography gutterBottom variant='subtitle2' component='div' align='left'  sx={{fontFamily: 'fredoka',}} color={'textSecondary'}>
-                                Valid Until:
+                                Valid Until: {budgetValid}
                             </Typography>
                         </Box>
                         
                     </CardContent>
                     <CardActions disableSpacing>
-                        <Button variant="text" disabled startIcon={<MilitaryTechIcon />}>
+                        <Button variant="text" sx={{color: 'white', pointerEvents: 'none'}} startIcon={<MilitaryTechIcon />}>
                             Budget Stickler
                         </Button>
                         <Button variant='outlined' sx={{ borderRadius: '20px', marginLeft: 'auto', color: 'white', border: '1px solid white' }} >Settings</Button>
                     </CardActions>
                 </Card>
             </Box>
-        </div>
+        </Box>
     )
 }
 

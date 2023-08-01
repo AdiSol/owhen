@@ -7,11 +7,12 @@ const theme = createTheme({
             secondary: '#ffffff'
         },
         background: {
-            default: '#C4E9E1', 
+            // default: '#C4E9E1', 
         },
         button: {
             main: '#ffffff', // Set the default button text color (white)
             background: '#007bff', // Set the default button background color
+            border: '1px solid white'
         },
     },
     
