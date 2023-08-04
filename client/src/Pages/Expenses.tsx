@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import ExpenseElement from '../Components/ExpenseElement';
+
 const Expenses = () => {
     const [currency, setCurrency] = useState<string>('NT$');
     return(
