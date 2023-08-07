@@ -14,8 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import styled from 'styled-components';
 import {NavLink as Link} from 'react-router-dom';
 
-const pages: string[] = ['Overview', 'Expenses', 'IOU', 'UOI'];
+// const pages: string[] = ['Overview', 'Expenses', 'IOU', 'UOI'];
 const settings: string[] = ['Account', 'Settings', 'Logout'];
+const pages = [{label: 'Overview', route: '/', key: 'Overview'}, {label: 'Expenses', route: '/expenses', key: 'Expenses'}, {label: 'IOUs', route: '/ious', key: 'IOUs'}, {label: 'UOIs', route: '/UOIs', key: 'UOIs'}];
+
 const NavLink = styled(Link)`
     color: #07124B; 
     font-size: 16px;
@@ -126,9 +128,15 @@ const Navbar = () => {
                                     display: { xs: 'block', md: 'none'}
                                 }}
                             >
+                                {/* <MenuItem key={'overview'}>
+                                    <NavLink to='/'>Overview</NavLink>
+                                </MenuItem>
+                                <MenuItem key={'expense'} >
+                                    <NavLink to='/expenses'><Typography textAlign={'center'}>Expenses</Typography></NavLink>
+                                </MenuItem> */}
                                 {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign={'center'}>{page}</Typography>
+                                    <MenuItem key={page.key} onClick={handleCloseNavMenu}>
+                                        <NavLink to={page.route}><Typography textAlign={'center'}>{page.label}</Typography></NavLink>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -151,19 +159,9 @@ const Navbar = () => {
                             Owhen
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'}, justifyContent: 'center', textAlign: 'center'}}>
-                            <NavLink to='/'>Overview</NavLink>
-                            <NavLink to='/expenses'>Expenses</NavLink>
-                            <NavLink to='/ious'>IOUs</NavLink>
-                            <NavLink to='/uois'>UOIs</NavLink>
-                            {/* {pages.map(page => (
-                                <Button 
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ mx: 4, my: 2, color: '#07124B', display: 'block'}}
-                                >
-                                    {page}
-                                </Button>
-                            ))} */}
+                            {pages.map(page => (
+                                <NavLink to={page.route}>{page.label}</NavLink>
+                            ))}
                         </Box>
                         
                         <Box sx={{ flexGrow: 0}}>

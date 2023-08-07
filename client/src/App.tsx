@@ -12,6 +12,7 @@ function App() {
   return (
     <>
     <Navbar/>
+    
     <div className='App-header'>
       
       <Routes>
