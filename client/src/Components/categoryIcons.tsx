@@ -19,44 +19,43 @@ export const iconSwitch = (category: string) => {
                     </Avatar>; 
         case 'Food & Drinks': 
             return <Avatar sx={{ bgcolor: amber[500], width: 55, height: 55 }} aria-label="recipe">
-                        <FastfoodIcon sx={{width: 35, height: 35}}/>; 
-                    </Avatar>
+                        <FastfoodIcon sx={{width: 35, height: 35}}/>
+                    </Avatar>;
         case 'Housing & Utilities':
             return <Avatar sx={{ bgcolor: lightBlue[500], width: 55, height: 55 }} aria-label="recipe">
-                        <MapsHomeWorkIcon sx={{width: 35, height: 35}}/>; 
+                        <MapsHomeWorkIcon sx={{width: 35, height: 35}}/>
                     </Avatar>;
         case 'Transporation':
             return<Avatar sx={{ bgcolor: orange[500], width: 55, height: 55 }} aria-label="recipe">
-                    <CommuteIcon sx={{width: 35, height: 35}}/>; 
+                    <CommuteIcon sx={{width: 35, height: 35}}/>
                 </Avatar>;
         case 'Vehicle':
             return<Avatar sx={{ bgcolor: yellow[500], width: 55, height: 55 }} aria-label="recipe">
-                    <CarRepairIcon sx={{width: 35, height: 35}}/>; 
+                    <CarRepairIcon sx={{width: 35, height: 35}}/>
                 </Avatar>;
         case 'Leisure & Entertainment':
             return<Avatar sx={{ bgcolor: purple[500], width: 55, height: 55 }} aria-label="recipe">
-                    <LocalMoviesIcon sx={{width: 35, height: 35}}/>; 
+                    <LocalMoviesIcon sx={{width: 35, height: 35}}/>
                 </Avatar>;
         case 'Investments':
             return<Avatar sx={{ bgcolor: green[500], width: 55, height: 55 }} aria-label="recipe">
-                    <ShowChartIcon sx={{width: 35, height: 35}}/>; 
+                    <ShowChartIcon sx={{width: 35, height: 35}}/>
                 </Avatar>;
         case 'Income':
             return<Avatar sx={{ bgcolor: teal[500], width: 55, height: 55 }} aria-label="recipe">
-                    <PaidIcon sx={{width: 35, height: 35}}/>; 
+                    <PaidIcon sx={{width: 35, height: 35}}/>
                 </Avatar>;
         case 'Travel':
             return<Avatar sx={{ bgcolor: cyan[500], width: 55, height: 55 }} aria-label="recipe">
-                    <AirplanemodeActiveIcon sx={{width: 35, height: 35}}/>; 
+                    <AirplanemodeActiveIcon sx={{width: 35, height: 35}}/>
                 </Avatar>;
         case 'Medical & Dental':
             return<Avatar sx={{ bgcolor: blue[500], width: 55, height: 55 }} aria-label="recipe">
-                    <MedicalServicesIcon sx={{width: 35, height: 35}}/>; 
+                    <MedicalServicesIcon sx={{width: 35, height: 35}}/>
                 </Avatar>;
         default:
-            
             return <Avatar sx={{ bgcolor: pink[500], width: 55, height: 55 }} aria-label="recipe">
-                        <QuestionMarkIcon sx={{width: 35, height: 35}}/>; 
-                    </Avatar>
+                        <QuestionMarkIcon sx={{width: 35, height: 35}}/>
+                    </Avatar>;
     }
 }

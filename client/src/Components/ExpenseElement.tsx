@@ -11,10 +11,7 @@ const ExpenseElement: React.FC<ExpenseElementProps> = ({expense}) => {
             <Card sx={{ minHeight: 30, maxWidth: 800, display: 'flex', p: 1.2, borderRadius: '15px', bgcolor: "#FFFAEC", my: '1rem'}}>
                 <Grid container spacing={1}>
                     <Grid item xs={2} sx={{width: '50%', margin: 'auto'}}>
-                        <Avatar sx={{ bgcolor: red[500], width: 55, height: 55 }} aria-label="recipe">
-                            {iconSwitch(expense.category)}
-                            {/* <LocalMallIcon sx={{width: 35, height: 35}}/> */}
-                        </Avatar>
+                        {iconSwitch(expense.category)}
                     </Grid>
                     <Grid item xs={3}>
                         <Typography gutterBottom variant='h5' component='div' align='left' color={'textPrimary'}>
