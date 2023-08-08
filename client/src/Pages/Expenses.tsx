@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import ExpenseElement from '../Components/ExpenseElement';
+import { expenses } from '../data/expenses';
 
 const Expenses = () => {
     const [currency, setCurrency] = useState<string>('NT$');
+    const [totalExp, setTotalExp] = useState<number>(15251.36);
+    const [avgExp, setAvgExp] = useState<number>(10251.41);
     return(
         <Box sx={{mt: 5}} >  
             <Typography gutterBottom variant='h4' component='div' align='center' color={'textPrimary'}>
@@ -15,7 +18,7 @@ const Expenses = () => {
                         Total Expense (monthly)
                     </Typography>
                     <Typography gutterBottom variant='h4' component='div' align='left' sx={{pb: 9}} color={'textPrimary'}>
-                        {currency}
+                        {currency}{totalExp}
                     </Typography>
                 </Grid>
                 <Grid item md={4} textAlign={'center'}>
@@ -23,7 +26,7 @@ const Expenses = () => {
                         Average Expenses (per month)
                     </Typography>
                     <Typography gutterBottom variant='h4' component='div' align='left' sx={{pb: 9}} color={'textPrimary'}>
-                        {currency}
+                        {currency}{avgExp}
                     </Typography>
                 </Grid>
                 <Grid item md={4}>
@@ -31,14 +34,19 @@ const Expenses = () => {
                         Average Expenses (per month)
                     </Typography>
                     <Typography gutterBottom variant='h4' component='div' align='left' sx={{pb: 9}} color={'textPrimary'}>
-                        {currency}
+                        {currency}{avgExp}
                     </Typography>
                 </Grid>
                 <Grid item md={12} textAlign={'center'} color={'textPrimary'}>
                     <Typography gutterBottom variant='h5' component='div' align='center' color={'textPrimary'}>
                         Breakdown
                     </Typography>
-                    <ExpenseElement/>
+                    {
+                        expenses.map(expense => (
+                            <ExpenseElement expense={expense}/>
+                        ))
+                    }
+                    
                 </Grid>
             </Grid>
         </Box>

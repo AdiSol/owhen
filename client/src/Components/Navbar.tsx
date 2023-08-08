@@ -13,10 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import styled from 'styled-components';
 import {NavLink as Link} from 'react-router-dom';
-
-// const pages: string[] = ['Overview', 'Expenses', 'IOU', 'UOI'];
+import { Page } from '../types/types';
 const settings: string[] = ['Account', 'Settings', 'Logout'];
-const pages = [{label: 'Overview', route: '/', key: 'Overview'}, {label: 'Expenses', route: '/expenses', key: 'Expenses'}, {label: 'IOUs', route: '/ious', key: 'IOUs'}, {label: 'UOIs', route: '/UOIs', key: 'UOIs'}];
+
+const pages: Page[] = [{label: 'Overview', route: '/', key: 'Overview'}, {label: 'Expenses', route: '/expenses', key: 'Expenses'}, {label: 'IOUs', route: '/ious', key: 'IOUs'}, {label: 'UOIs', route: '/UOIs', key: 'UOIs'}];
 
 const NavLink = styled(Link)`
     color: #07124B; 

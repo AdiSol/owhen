@@ -1,25 +1,27 @@
 import React from "react";
-import { Card, CardContent, Box, CardHeader, Avatar, Grid, Typography, Divider } from "@mui/material";
+import { Card, CardContent, Box, Avatar, Grid, Typography, Divider } from "@mui/material";
 import { red } from '@mui/material/colors';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-const ExpenseElement = () => {
-
+import { ExpenseElementProps } from "../types/types";
+import { currency } from "../types/types";
+import { iconSwitch } from "./categoryIcons";
+const ExpenseElement: React.FC<ExpenseElementProps> = ({expense}) => {
     return(
         <center>
-        <Box sx={{}}>
-            <Card sx={{ minHeight: 30, maxWidth: 800, display: 'flex', p: 1.2, borderRadius: '15px', bgcolor: "#FFFAEC"}}>
+        <Box>
+            <Card sx={{ minHeight: 30, maxWidth: 800, display: 'flex', p: 1.2, borderRadius: '15px', bgcolor: "#FFFAEC", my: '1rem'}}>
                 <Grid container spacing={1}>
                     <Grid item xs={2} sx={{width: '50%', margin: 'auto'}}>
                         <Avatar sx={{ bgcolor: red[500], width: 55, height: 55 }} aria-label="recipe">
-                            <LocalMallIcon sx={{width: 35, height: 35}}/>
+                            {iconSwitch(expense.category)}
+                            {/* <LocalMallIcon sx={{width: 35, height: 35}}/> */}
                         </Avatar>
                     </Grid>
                     <Grid item xs={3}>
                         <Typography gutterBottom variant='h5' component='div' align='left' color={'textPrimary'}>
-                            Shopping
+                            {expense.category}
                         </Typography>
                         <Typography gutterBottom variant='subtitle2' component='div' align='left' color={'textPrimary'}>
-                            June 10, 2023
+                            {expense.date}
                         </Typography>
                     </Grid>
                     <Grid item xs={4}>
@@ -27,13 +29,13 @@ const ExpenseElement = () => {
                             Notes
                         </Typography>
                         <Typography gutterBottom variant='subtitle2' component='div' align='left' color={'textPrimary'}>
-                            cute bag with a cat
+                            {expense.notes}
                         </Typography>
                     </Grid>
                     <Grid item xs={3}>
                         <Divider orientation="vertical" variant="middle" flexItem textAlign="left"/>
                         <Typography gutterBottom variant='h4' component='div' align='right' color={'textPrimary'}>
-                            NT$1245
+                            {currency}{expense.amount}
                         </Typography>
                     </Grid>
                 </Grid>
