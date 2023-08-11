@@ -13,7 +13,6 @@ const HomePage = () => {
 
     const theme = useTheme();
     const isMobileSize = useMediaQuery(theme.breakpoints.down('sm'));
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const cardLabel = isMobileSize ? 'subtitle2' :'h6';
     const cardAmount = isMobileSize ? 'h5' :'h4';
@@ -61,7 +60,7 @@ const HomePage = () => {
         <Box sx={{mt: 5}}>  
             {/* <h1>Homepage</h1> */}
             <Box sx={{ flexGrow: 1, display: 'flex',  justifyContent: 'center', color: 'white', mt: isMobileSize ? 5 : 15}}>
-                <Grid container spacing={isSmallScreen ? 0 : 2} alignItems="center" justifyContent="center">
+                <Grid container spacing={isMobileSize ? 0 : 2} alignItems="center" justifyContent="center">
                     <Grid item md={1} sm={0}></Grid>
                     <Grid item xs={12} sm={12} md={5}>
                         <center>
